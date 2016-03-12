@@ -8,9 +8,9 @@ Router.route('/backoffice');
 
 Router.route('/MyMissionLiked');
 
-Template.task_app.tasks = function () {
+/*Template.task_app.tasks = function () {
     return Tasks.find({task_name: task_name});
-};
+};*/
 
 if (Meteor.isClient) {
     $(document).ready(function(){
@@ -71,27 +71,41 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.backoffice.events({
+        'click .delete-all-button': function(event){
+            var missions = Missions.find({});
+            missions.forEach(function(mission){
+                Missions.remove(mission._id);
+            });
+        },
+        'click .delete-one-button': function(event){
+            Missions.remove(this._id);
+        }
+    });
+
     Template.missionForm.events({
         'click .new-mission .button-submit': function (event) {
             // Prevent default browser form submit
             event.preventDefault();
 
-            var form = $(event.target).parent();
+            var form = $('#mission-form');
+
+
             var titleInput = form.find('input[name="title"]');
             var whoInput = form.find('input[name="who"]');
             var whereInput = form.find('input[name="where"]');
             var whenInput = form.find('input[name="when"]');
-            var descriptionInput = form.find('textarea.description-textarea');
+            var descriptionInput = form.find('.description-textarea');
             var logoInput = form.find('input[name="logo"]');
 
-            console.log(descriptionInput.html());
+            console.log(descriptionInput.val());
 
             Missions.insert({
                 title: titleInput.val(),
                 who: whoInput.val(),
                 where: whereInput.val(),
                 when: whenInput.val(),
-                description: descriptionInput.html(),
+                description: descriptionInput.val(),
                 logo: logoInput.val(),
                 createdAt: new Date()
             });
@@ -100,7 +114,7 @@ if (Meteor.isClient) {
             whoInput.val('');
             whereInput.val('');
             whenInput.val('');
-            descriptionInput.html('');
+            descriptionInput.val('');
             logoInput.val('');
         }
     })
