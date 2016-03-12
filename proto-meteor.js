@@ -8,11 +8,17 @@ Router.route('/backoffice');
 
 Router.route('/MyMissionLiked');
 
-Router.route('/subscribe');
+Router.map(function () {
+    this.route('missionDetail', {
+        path: 'missionDetail/:id',
+        template: 'missionDetail',
+        data: function () {
+            return Missions.findOne(this.params.id);
+        }
+    });
+});
 
-/*Template.task_app.tasks = function () {
-    return Tasks.find({task_name: task_name});
-};*/
+Router.route('/subscribe');
 
 if (Meteor.isClient) {
     $(document).ready(function(){
@@ -72,6 +78,13 @@ if (Meteor.isClient) {
     Template.MyMissionLiked.helpers({
         missions: function () {
             return Missions.find({liked: true}, {sort: {createdAt: -1}});
+        }
+    });
+
+    Template.MyMissionLiked.events({
+        'click .mission-liked-wrapper': function(event)
+        {
+
         }
     });
 
