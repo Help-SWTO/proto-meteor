@@ -8,6 +8,8 @@ Router.route('/backoffice');
 
 Router.route('/MyMissionLiked');
 
+Router.route('/subscribe');
+
 /*Template.task_app.tasks = function () {
     return Tasks.find({task_name: task_name});
 };*/
@@ -118,12 +120,12 @@ if (Meteor.isClient) {
                 createdAt: new Date()
             });
 
-            titleInput.val('');
+            /*titleInput.val('');
             whoInput.val('');
             whereInput.val('');
             whenInput.val('');
             descriptionInput.val('');
-            logoInput.val('');
+            logoInput.val('');*/
         }
     })
 }

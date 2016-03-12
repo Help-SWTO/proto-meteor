@@ -3,10 +3,7 @@
 </head>
 
 <body>
-{{> menu}}
 </body>
-
-
 
 <template name="menu">
   <nav style="height: 10vw;line-height:10vw;">
@@ -18,10 +15,12 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="myMissionLiked">Mes missions</a></li>
         <li><a href="backoffice">Backoffice</a></li>
+        <li><a href="subscribe">Subscribe</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/" style="font-size:25px;">Home</a></li>
         <li><a href="myMissionLiked" style="font-size:25px;">Mes missions</a></li>
+        <li><a href="subscribe">Subscribe</a></li>
       </ul>
     </div>
   </nav>
@@ -115,6 +114,8 @@
 </template>
 
 <template name="landing">
+  {{> menu}}
+
   {{#HammerTouchArea gestureMap=templateGestures}}
   {{#each missions}}
   {{> card}}
@@ -163,6 +164,8 @@
 
 <template name="MyMissionLiked">
 
+  {{> menu}}
+
   {{#each missions}}
   {{> card}}
   {{/each}}
@@ -170,6 +173,7 @@
 </template>
 
 <template name="backoffice">
+  {{> menu}}
   <table>
     <thead>
     <tr>
@@ -177,6 +181,7 @@
       <th data-field="description">Description</th>
       <th data-field="liked">Likée</th>
       <th data-field="logo">Logo</th>
+      <th data-field="actions">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -188,5 +193,39 @@
 
   {{> missionForm}}
   <br>
-  <button class="btn materialize-red delete-button">Supprimer les missions</button>
+  <button class="btn materialize-red delete-all-button">Supprimer les missions</button>
+</template>
+
+<template name="subscribe">
+  <h1 class="materialize-red push-s5">HELP</h1>
+  <img src="images/image1.JPG" />
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn push-s11">S'inscrire</button>
+      </div>
+    </form>
+  </div>
 </template>
