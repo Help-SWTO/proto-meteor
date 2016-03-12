@@ -48,11 +48,7 @@ if (Meteor.isClient) {
             'swiperight .mission-card': function (event, templateInstance) {
 
                 var _this = this;
-                console.log(this);
-                console.log('right');
-                console.log(event);
-                console.log(templateInstance);
-                $(event.target).animate({left:1000},600,'swing',function(){
+                $(event.target).animate({left:1000,height:0,opacity:0},600,'swing',function(){
                     Missions.update(_this._id, {
                         $set: {liked: true}
                     });
@@ -60,10 +56,13 @@ if (Meteor.isClient) {
 
             },
             'swipeleft .mission-card': function (event, templateInstance) {
-                Missions.update(this._id, {
-                    $set: {liked: false}
+                var _this = this;
+                $(event.target).animate({right:1000,height:0,opacity:0},600,'swing',function(){
+                    Missions.update(_this._id, {
+                        $set: {liked: false}
+                    });
                 });
-                console.log('left');
+
             }
 
             /*

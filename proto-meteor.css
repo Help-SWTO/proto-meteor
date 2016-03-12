@@ -65,3 +65,11 @@
     height: 15vh;
     bottom:0px;
 }
+
+.mission-card {
+   /* border:solid 1px; */
+}
+
+.mission-card.center_text {
+    font-size: 30px;
+}

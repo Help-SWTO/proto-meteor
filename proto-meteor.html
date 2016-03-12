@@ -27,14 +27,40 @@
 </template>
 
 <template name="card">
-  <div class="row mission-card" style=" height:75vh; background-color: rgba(200,200,200,0.3);  position:relative">
-    <img src="{{logo}}" style="text-align:center;max-width: 100vw; display:block;margin-right:auto;margin-left:auto ">
-    <h4 class="center_text">{{ title }} </h4>
+  <div class=" mission-card" style=" height:75vh;   position:relative">
+    <img src="{{logo}}" style="text-align:center;max-width: 80vw; display:block;margin-right:auto;margin-left:auto ; margin-bottom: 10px;">
 
-    <p class="qui">Qui: {{who}}</p>
-    <p class="ou">Où: {{where}}</p>
-    <p class="quand">Quand: {{when}}</p>
-    <p class="details">Détails: {{description}}</p>
+    <div  >
+      <div class="" style="width:100vw;padding-left:0px;border-right:0px;">
+        <div class="card  darken-1" style="background-color: #4db6ac;">
+          <div class="card-content white-text">
+            <span class="card-title" style="font-size: 70px; text-align: center;">{{ title }}</span>
+            <p></p>
+          </div>
+          <div style="background-color:white; color:black;text-align: center;">
+
+            <p class="qui"><span style="font-weight: bold; font-size: 30px;">Qui:</span> {{who}}</p>
+            <p class="ou"><span style="font-weight: bold; font-size: 30px;">Ou:</span> {{where}}</p>
+            <p class="quand"><span style="font-weight: bold; font-size: 30px;">Quand:</span> {{when}}</p>
+
+          </div>
+          <div class="card-action">
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<h4 class="center_text" style="font-size:70px;">{{ title }} </h4>
+
+
+
+    <div class="details">
+      <p style="font-weight: bold; font-size: 30px;">Détails:</p>
+      <p>{{description}}</p>
+    </div>
+    -->
 
   </div>
 
@@ -114,6 +140,8 @@
 </template>
 
 <template name="landing">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
   {{> menu}}
 
   {{#HammerTouchArea gestureMap=templateGestures}}
@@ -127,13 +155,46 @@
   {{/HammerTouchArea}}
 
   <div class="footer_like_tinder">
-    <div class="footer_button" style="border-right: solid rgba(100,100,100,0.3) 1px;background-color: red; ">
-
+    <div class="footer_button" style="border-right: solid rgba(100,100,100,0.3) 1px;background-color: #ee6e73; ">
+      <div class="center_image" style="color:white;font-size: 200px;left:18vw;right:18vw;position:relative;"><i class="zmdi zmdi-close"></i></div>
     </div>
-    <div class="footer_button" style=" background-color: green;float:right; ">
-
+    <div class="footer_button" style=" background-color: #4db6ac;float:right; ">
+      <div class="center_image" style="color:white;font-size: 200px;left:18vw;right:18vw;position:relative;"><i class="zmdi zmdi-check"></i></div>
     </div>
   </div>
+
+  <style>
+
+    .center_image{
+      display:block;margin-right:auto;margin-left:auto;";
+    }
+
+    .center_text{
+      text-align: center;
+    }
+
+
+    .footer_button:hover{
+
+    }
+
+    .footer_button{
+      width:50vw;
+      height:100%;
+      display:inline-block;
+    }
+
+
+    .footer_like_tinder{
+      border-top: solid rgba(100,100,100,0.3) 1px;
+      position: fixed;
+      width: 100vw;
+      height: 15vh;
+      bottom:0px;
+
+
+    }
+  </style>
 </template>
 
 <template name="MyMissionLiked">
