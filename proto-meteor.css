@@ -3,3 +3,11 @@
 .nav{
     height: 10vw;
 }
+
+.mission-card {
+   /* border:solid 1px; */
+}
+
+.mission-card.center_text {
+    font-size: 30px;
+}
