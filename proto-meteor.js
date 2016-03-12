@@ -38,10 +38,18 @@ if (Meteor.isClient) {
         },
         templateGestures: {
             'swiperight .mission-card': function (event, templateInstance) {
-                Missions.update(this._id, {
-                    $set: {liked: true}
-                });
+
+                var _this = this;
+                console.log(this);
                 console.log('right');
+                console.log(event);
+                console.log(templateInstance);
+                $(event.target).animate({left:1000},600,'swing',function(){
+                    Missions.update(_this._id, {
+                        $set: {liked: true}
+                    });
+                });
+
             },
             'swipeleft .mission-card': function (event, templateInstance) {
                 Missions.update(this._id, {

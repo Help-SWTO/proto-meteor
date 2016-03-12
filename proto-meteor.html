@@ -28,14 +28,14 @@
 </template>
 
 <template name="card">
-  <div class="row mission-card" style=" height:75vh; background-color: rgba(200,200,200,0.3);">
+  <div class="row mission-card" style=" height:75vh; background-color: rgba(200,200,200,0.3);  position:relative">
     <img src="{{logo}}" style="text-align:center;max-width: 100vw; display:block;margin-right:auto;margin-left:auto ">
     <h4 class="center_text">{{ title }} </h4>
 
-    <p>Qui: {{who}}</p>
-    <p>Où: {{where}}</p>
-    <p>Quand: {{when}}</p>
-    <p>Détails: {{description}}</p>
+    <p class="qui">Qui: {{who}}</p>
+    <p class="ou">Où: {{where}}</p>
+    <p class="quand">Quand: {{when}}</p>
+    <p class="details">Détails: {{description}}</p>
 
   </div>
 
@@ -129,7 +129,6 @@
 
     </div>
   </div>
-
 
   <style>
 
