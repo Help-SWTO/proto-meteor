@@ -81,7 +81,7 @@ if (Meteor.isClient) {
             var whoInput = form.find('input[name="who"]');
             var whereInput = form.find('input[name="where"]');
             var whenInput = form.find('input[name="when"]');
-            var descriptionInput = form.find('textare.description-textarea');
+            var descriptionInput = form.find('textarea.description-textarea');
             var logoInput = form.find('input[name="logo"]');
 
             console.log(descriptionInput.html());
