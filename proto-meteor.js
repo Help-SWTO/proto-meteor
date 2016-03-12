@@ -8,6 +8,10 @@ Router.route('/backoffice');
 
 Router.route('/MyMissionLiked');
 
+Template.task_app.tasks = function () {
+    return Tasks.find({task_name: task_name});
+};
+
 if (Meteor.isClient) {
     $(document).ready(function(){
         $(".button-collapse").sideNav();
