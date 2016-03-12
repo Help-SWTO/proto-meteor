@@ -1,12 +1,69 @@
 Missions = new Mongo.Collection("missions");
 
+Router.route('/', function () {
+    this.render('landing');
+});
+
+Router.route('/backoffice');
+
+Router.route('/MyMissionLiked');
+
 if (Meteor.isClient) {
+    $(document).ready(function(){
+        $(".button-collapse").sideNav();
+    });
+
     // counter starts at 0
     Session.setDefault('counter', 0);
 
-    Template.body.helpers({
+    Template.mission.helpers({
+        'isLiked': function(){
+            return this.liked === true;
+        },
+        'isUnliked': function(){
+            return this.liked === false
+        },
+        'isNotEvaluated': function(){
+            return !(this.liked === true || this.liked === false);
+        }
+    });
+
+    Template.landing.helpers({
         missions: function () {
-            return Missions.find({}, {sort: {createdAt: -1}});
+            return Missions.find({liked: null}, {sort: {createdAt: -1}});
+        },
+        templateGestures: {
+            'swiperight .mission-card': function (event, templateInstance) {
+                Missions.update(this._id, {
+                    $set: {liked: true}
+                });
+                console.log('right');
+            },
+            'swipeleft .mission-card': function (event, templateInstance) {
+                Missions.update(this._id, {
+                    $set: {liked: false}
+                });
+                console.log('left');
+            }
+
+            /*
+            'doubletap .mission-card': function (event, templateInstance) {
+                console.log(event, templateInstance);
+                console.log(this);
+                alert('wut');
+            }*/
+        }
+    });
+
+    Template.MyMissionLiked.helpers({
+        missions: function () {
+            return Missions.find({liked: true}, {sort: {createdAt: -1}});
+        }
+    });
+
+    Template.backoffice.helpers({
+        missions: function () {
+            return Missions.find({});
         }
     });
 
@@ -16,25 +73,31 @@ if (Meteor.isClient) {
             event.preventDefault();
 
             var form = $(event.target).parent();
-            console.log(form.data());
-            var title = form.find('input[name="title"]').val();
-            var description = form.find('input[name="description"]').val();
+            var titleInput = form.find('input[name="title"]');
+            var whoInput = form.find('input[name="who"]');
+            var whereInput = form.find('input[name="where"]');
+            var whenInput = form.find('input[name="when"]');
+            var descriptionInput = form.find('textare.description-textarea');
+            var logoInput = form.find('input[name="logo"]');
 
-            console.log('title', title);
-            console.log('description', description);
+            console.log(descriptionInput.html());
 
-            // Get value from form element
-            //var title = event.target.title.value;
-
-            // Insert a task into the collection
             Missions.insert({
-                title: title,
-                description: description,
-                createdAt: new Date() // current time
+                title: titleInput.val(),
+                who: whoInput.val(),
+                where: whereInput.val(),
+                when: whenInput.val(),
+                description: descriptionInput.html(),
+                logo: logoInput.val(),
+                createdAt: new Date()
             });
 
-            // Clear form
-            event.target.title.value = "";
+            titleInput.val('');
+            whoInput.val('');
+            whereInput.val('');
+            whenInput.val('');
+            descriptionInput.html('');
+            logoInput.val('');
         }
     })
 }
