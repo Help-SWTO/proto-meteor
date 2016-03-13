@@ -27,22 +27,23 @@
 </template>
 
 <template name="card">
-  <div class=" mission-card" style=" height:75vh;   position:relative">
-    <img src="{{logo}}" style="text-align:center;max-width: 80vw; display:block;margin-right:auto;margin-left:auto ; margin-bottom: 10px;">
+  <div class=" mission-card" style=" height:75vh;   position:relative; margin-bottom:80px; margin-top:30px;">
 
     <div  >
-      <div class="" style="width:100vw;padding-left:0px;border-right:0px;">
+      <div class="" style="width:80vw;padding-left:10vw;">
         <div class="card  darken-1" style="background-color: #4db6ac;">
           <div class="card-content white-text">
             <span class="card-title" style="font-size: 70px; text-align: center;">{{ title }}</span>
             <p></p>
           </div>
-          <div style="background-color:white; color:black;text-align: center;">
-
-            <p class="qui"><span style="font-weight: bold; font-size: 30px;">Qui:</span> {{who}}</p>
-            <p class="ou"><span style="font-weight: bold; font-size: 30px;">Ou:</span> {{where}}</p>
-            <p class="quand"><span style="font-weight: bold; font-size: 30px;">Quand:</span> {{when}}</p>
-
+          <div style="background-color:white; color:black;text-align: center; font-size: 30px;">
+            <div class="image-logo">
+              <img src="{{logo}}" style="text-align:center;max-width: 80vw; display:block;margin-right:auto;margin-left:auto ; padding:40px;">
+            </div>
+            <div style="padding-bottom: 20px;">
+              <p class="qui"><span style="font-weight: bold; font-size: 30px;">Qui:</span> {{who}}</p>
+              <p class="ou"><span style="font-weight: bold; font-size: 30px;">Ou:</span> {{where}}</p>
+              <p class="quand"><span style="font-weight: bold; font-size: 30px; padding-bottom:30px;">Quand:</span> {{when}}</p></div>
           </div>
           <div class="card-action">
             <a href="#"></a>
