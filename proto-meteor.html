@@ -3,17 +3,36 @@
 </head>
 
 <body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 </body>
 
 <template name="menu">
 
+  <!--<a class="subscribe-logo" href="/"><img class="subscribe-logo" src="images/image1.JPG" /></a>-->
 
-  <nav style="height: 10vw;line-height:10vw;">
+  <!--<div class="fixed-action-btn horizontal click-to-toggle" style="top: 45px; left: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large mdi-navigation-menu"></i>
+    </a>
+    <ul>
+      <li><a href="/myMissionLiked">Mes missions</a></li>
+      <li><a href="/backoffice">Backoffice</a></li>
+      <li><a href="/subscribe">Subscribe</a></li>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>-->
+
+  <nav style="height: 10vh;line-height:10vh;">
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo" style="height: 10vh;line-height:10vh;">Logo</a>
+      <a href="/" class="brand-logo" style="font-size:5vh;">
+        HELP
+      </a>
       <a href="#" data-activates="mobile-demo" class="button-collapse" style="height: 10vh;line-height:10vh;">
 
-        <i style="height: 10vh;line-height:10vh; color:white; padding-left:3vw;"  class="zmdi zmdi-menu"></i>
+        <i style="font-size: 5vh;line-height:10vh; color:white; padding-left:3vw;"  class="zmdi zmdi-menu"></i>
       </a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/myMissionLiked">Mes missions</a></li>
@@ -243,9 +262,9 @@
   </div>
   {{/each}}
 -->
+
   {{> menu}}
   <ul class="collection">
-
     {{#each missions}}
     {{> listmymision}}
     {{/each}}
@@ -255,16 +274,16 @@
 
 <template name="listmymision">
   <li class="collection-item avatar">
-    <img src="{{ logo }}" alt="" class="circle">
-    <span class="title">{{ title}}</span>
-    <p>
+    <img src="{{ logo }}" alt="" class="circle" >
+    <span class=" center_text title">{{ title}}</span>
+    <p class=" center_text title">
       {{ what }}
     </p>
     <p>{{ when }} {{where }}
     </p>
-    <p class="truncate">{{description}}</p>
+    <p style="font-size:25px;" class="truncate"><br>{{description}}</p>
 
-      <a href="missionDetail/{{_id}}" class="secondary-content flat-btn"><i class="material-icons">Voir la fiche</i></a>
+      <a href="missionDetail/{{_id}}" class="secondary-content waves-effect waves-light btn-large"><i class="material-icons">Voir la fiche</i></a>
 
   </li>
 </template>
@@ -297,7 +316,7 @@
 
 <template name="subscribe">
   <img class="subscribe-logo" src="images/image1.JPG" />
-  <div class="row">
+  <div class="row sub-form">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
@@ -336,12 +355,11 @@
 
 <template name="missionDetail">
   {{> menu}}
-  <h3>Détail de la mission</h3>
+  <h3 class="center_text">Description</h3>
     {{> cardDetail}}
 </template>
 
 <template name="cardDetail">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
   <div class=" mission-card" style=" height:75vh;   position:relative; margin-bottom:80px; margin-top:60px;">
 
@@ -371,7 +389,10 @@
     <div style="padding: 20px; width: 80vw;margin-left:auto;margin-right:auto;">
       <h2>Details:</h2>
     <p style="font-size: 30px;">{{description}}</p>
-      <div class="center_image" style="position:relative;color:#4db6ac;font-size: 200px;"><i class="zmdi zmdi-check"></i></div>
+      <div class="center_img " style="position:relative;color:#4db6ac;font-size: 200px;"><i class="zmdi zmdi-check"></i>
+      <span style="font-size: 60px; position:relative;
+      bottom: 3vh;">Accepter la Mission</span>
+      </div>
     </div>
     <!--<h4 class="center_text" style="font-size:70px;">{{ title }} </h4>
 

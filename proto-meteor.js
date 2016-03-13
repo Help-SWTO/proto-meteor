@@ -40,6 +40,13 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.menu.events({
+        'click .subscribe-logo': function(event){
+            console.log('wat');
+            window.location = '/';
+        }
+    });
+
     Template.landing.events({
         'click #btn-refuse': function(event)
         {

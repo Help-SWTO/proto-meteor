@@ -19,7 +19,13 @@
     display: block;
     height: 12vw;
     border-radius: 0;
-    line-height: 12vw;
+    line-height: 7.5vh;
+    font-size: 3vh;
+}
+
+.sub-form input{
+    line-height: 7.5vh;
+    font-size: 3vh;
 }
 
 .sub-button-1{
@@ -48,6 +54,12 @@
     text-align: center;
 }
 
+.center_img
+{
+    display:block;
+    margin-left:  auto;
+    margin-right: auto;
+}
 .footer_button:hover{
 
 }
@@ -72,4 +84,26 @@
 
 .mission-card.center_text {
     font-size: 30px;
+}
+
+.side-menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    line-height: 40px;
+    font-size: 40px;
+    margin-left: 3vw;
+}
+
+.side-menu > li{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.side-menu > li > a{
+    color: #0D47A1;
+}
+
+.collection .collection-item.avatar {
+    min-height: 210px !important;
 }
