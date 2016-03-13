@@ -198,7 +198,7 @@
 </template>
 
 <template name="MyMissionLiked">
-
+<!--
   {{> menu}}
 
   {{#each missions}}
@@ -210,7 +210,28 @@
     Aucune mission :(
   </div>
   {{/each}}
+-->
 
+  <ul class="collection">
+    {{#each missions}}
+      {{> listmymision}}
+    {{/each}}
+   </ul>
+
+</template>
+
+<template name="listmymision">
+  <li class="collection-item avatar">
+    <img src="{{ logo }}" alt="" class="circle">
+    <span class="title">{{ title}}</span>
+    <p>
+      {{ what }}
+    </p>
+    <p>{{ when }} {{where }}
+    <br>
+    {{description}}</p>
+      <a href="missionDetail/{{_id}}" class="secondary-content flat-btn"><i class="material-icons">Voir la fiche</i></a>
+  </li>
 </template>
 
 <template name="backoffice">
