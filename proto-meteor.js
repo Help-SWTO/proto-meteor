@@ -40,6 +40,23 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.landing.events({
+        'click #btn-refuse': function(event)
+        {
+            console.log(event);
+            Missions.update(_this._id, {
+                $set: {liked: false}
+            });
+        },
+        'click #btn-validate': function(event)
+        {
+            console.log(event);
+            Missions.update(_this._id, {
+                $set: {liked: true}
+            });
+        }
+    });
+
     Template.landing.helpers({
         missions: function () {
             return Missions.find({liked: null}, {sort: {createdAt: -1}});
