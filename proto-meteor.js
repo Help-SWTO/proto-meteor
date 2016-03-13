@@ -58,6 +58,7 @@ if (Meteor.isClient) {
     });
 
     Template.landing.helpers({
+
         missions: function () {
             return Missions.find({liked: null}, {sort: {createdAt: -1}});
         },
