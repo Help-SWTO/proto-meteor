@@ -312,6 +312,8 @@
   {{> missionForm}}
   <br>
   <button class="btn materialize-red delete-all-button">Supprimer les missions</button>
+  <br>
+  <button class="btn add-all-button">Ajouter des missions</button>
 </template>
 
 <template name="subscribe">
@@ -389,11 +391,25 @@
     <div style="padding: 20px; width: 80vw;margin-left:auto;margin-right:auto;">
       <h2>Details:</h2>
     <p style="font-size: 30px;">{{description}}</p>
-      <div class="center_img " style="position:relative;color:#4db6ac;font-size: 200px;"><i class="zmdi zmdi-check"></i>
+
+      <div data-target="modal1" class="modal-trigger center_img" style="position:relative;color:#4db6ac;font-size: 200px;"><i class="zmdi zmdi-check"></i>
       <span style="font-size: 60px; position:relative;
       bottom: 3vh;">Accepter la Mission</span>
       </div>
     </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+      <div class="modal-content">
+        <p style="font-size: 50px;line-height:50px;text-align: center;padding-top:10px;padding-bottom: 10px;color:#4db6ac;">Mission acceptée !</p>
+      </div>
+    </div>
+
+    <script type="application/javascript">
+      $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+      });
+    </script>
     <!--<h4 class="center_text" style="font-size:70px;">{{ title }} </h4>
 
 

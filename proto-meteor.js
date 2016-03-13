@@ -47,6 +47,18 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.card.events({
+        'click .card-title': function(event){
+            var _this = this;
+            $(event.target).parent().parent().parent().parent().parent().animate({/*left:1000,*/height:0,opacity:0},600,'swing',function(){
+                Missions.update(_this._id, {
+                    $set: {liked: true}
+                });
+                console.log(event);
+            });
+        }
+    });
+
     Template.landing.events({
         'click #btn-refuse': function(event)
         {
@@ -128,6 +140,35 @@ if (Meteor.isClient) {
         },
         'click .delete-one-button': function(event){
             Missions.remove(this._id);
+        },
+        'click .add-all-button': function(event){
+            Missions.insert({
+                title: 'Accueillir les visiteurs',
+                who: 'Tous profils',
+                where: 'Paris, Bercy',
+                when: '27 mars 2016',
+                description: "La mission est orientée vers l'hospitalité, l'accueil, l'orientation, l'accompagnement et l'animation. L'objectif est de faciliter le séjour des visiteurs étrangers venus supporter leurs équipes. On vous attend ! La maîtrise d'une langue étrangère serait un plus",
+                logo: 'https://www.om.net/sites/default/files/euro2016_logo.jpg',
+                createdAt: new Date()
+            });
+            Missions.insert({
+                title: 'Dispositif de secours',
+                who: 'Secouristes',
+                where: 'Olympia de Toulouse',
+                when: '27 mars 2016',
+                description: "Bénévole au sein des équipes secouristes de la Croix-Rouge, vous participerez au dispositif prévisionnel de secours à l'occasion du concert de maître Gims, et à nos opérations de secours en cas de catastrophe.",
+                logo: 'http://tournanenbrie.croix-rouge.fr/IMG/gif/CRF.gif',
+                createdAt: new Date()
+            });
+            Missions.insert({
+                title: 'Animations pour les enfants',
+                who: 'Secouristes',
+                where: 'Olympia de Toulouse',
+                when: '27 mars 2016',
+                description: "UNICEF : Animations menée avec les représentants de la mairie et des acteurs du privé dans le but de défendre et de plaider la cause des enfants, notamment ceux victimes de profondes inégalités.",
+                logo: 'http://www.yourlogoresources.com/wp-content/uploads/2011/08/unicef-logo1.gif',
+                createdAt: new Date()
+            });
         }
     });
 
