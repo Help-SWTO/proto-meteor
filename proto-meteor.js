@@ -48,7 +48,7 @@ if (Meteor.isClient) {
             'swiperight .mission-card': function (event, templateInstance) {
 
                 var _this = this;
-                $(event.target).parent().parent().parent().parent().parent().animate({left:1000,height:0,opacity:0},600,'swing',function(){
+                $(event.target).parent().parent().parent().parent().parent().parent().animate({left:1000,height:0,opacity:0},600,'swing',function(){
                     Missions.update(_this._id, {
                         $set: {liked: true}
                     });
